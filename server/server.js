@@ -15,12 +15,15 @@ PUT   /videos/:videoId
 let express = require('express');
 let app = express();
 const port = 8000
+let bodyParser = require('body-parser')
 
 app.use(express.static('../client'));
 
+app.use(bodyParser.json());
 
-app.post('/login', function (req, res) {
-    res.send('Got a POST request for login')
+app.post('/login',  (req, res,next) => {
+    res.send(`Got a POST request for login with age of: ${req.body.age} and name of ${req.body.name} `);
+    next();
 })
 
 
