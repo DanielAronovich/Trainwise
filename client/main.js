@@ -4,20 +4,20 @@ let form = document.querySelector('form');
 
 
 
-form.addEventListener('submit', e => {
-    e.preventDefault();
+// form.addEventListener('submit', e => {
+//     e.preventDefault();
 
-    let email = document.getElementById("EmailAddress").value;
-    let password = document.getElementById("InputPassword").value;
+//     let email = document.getElementById("EmailAddress").value;
+//     let password = document.getElementById("InputPassword").value;
 
-    let dataJSON = JSON.stringify( {Email: email, Password: password});
+//     let dataJSON = JSON.stringify( {email: email, password: password});
 
 
 
-    request('POST',form.action, data => {
-        document.querySelector("#response").innerHTML = data; }, {}, dataJSON );
+//     request('POST',form.action, data => {
+//         document.querySelector("#response").innerHTML = data; }, {}, dataJSON );
 
-});
+// });
 
 
 

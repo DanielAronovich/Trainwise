@@ -38,23 +38,21 @@ mongo.MongoClient.connect('mongodb://localhost:27017', (err, client) => {
 app.use(express.static('../client'));
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 
 app.post('/login',  (req, res,next) => {
 
-    users.find({email: req.body.Email, password: req.body.password}).toArray((err, result) => {
+    users.find({email: req.body.email, password: req.body.password}).toArray((err, result) => {
 
         if (err || result.length < 1) {
             res.sendStatus(401);
-            return;   
+            return;
         }
 
-        res.redirect('/login.html')
+        res.redirect('/index.html')
 
 
     });
-
-
-    next();
 })
 
 
